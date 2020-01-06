@@ -1,5 +1,15 @@
 
 
+function updateOutput () {
+	$("iframe").contents().find('html').html(
+		"<html><head><style type='text/css'>"
+		+ $("#cssPanel").val()
+		+ "</style></head><body>"
+		+ $("#htmlPanel").val()
+		+ "</body></html>"
+	);
+}
+
 $(".toggleButton").hover(function () {
 	$(this).addClass('highlightedButton');
 }, function () {
@@ -21,8 +31,8 @@ $(".panel").height($(window).height() - $("#header").height() - 15);
 
 $(".panel").width(($(window).width() / 2) - 10);
 
-$("iframe").contents().find('html').html($("#htmlPanel").val());
+updateOutput();
 
 $("textarea").on('onchange keyup paste', function () {
-	$("iframe").contents().find('html').html($("#htmlPanel").val());
+	updateOutput();
 })
