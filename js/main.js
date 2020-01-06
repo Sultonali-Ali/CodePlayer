@@ -8,6 +8,7 @@ function updateOutput () {
 		+ $("#htmlPanel").val()
 		+ "</body></html>"
 	);
+	document.querySelector("#outputPanel").contentWindow.eval($("#javascriptPanel").val());
 }
 
 $(".toggleButton").hover(function () {
