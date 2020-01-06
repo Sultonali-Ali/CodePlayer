@@ -10,3 +10,13 @@ $(".toggleButton").click(function() {
 	$(this).toggleClass('active');
 	$(this).removeClass('highlightedButton');
 });
+
+$(".panel").height($(window).height() - $("#header").height() - 15);
+
+$(".panel").width(($(window).width() / 2) - 10);
+
+$("iframe").contents().find('html').html($("#htmlPanel").val());
+
+$("textarea").on('onchange keyup paste', function () {
+	$("iframe").contents().find('html').html($("#htmlPanel").val());
+})
